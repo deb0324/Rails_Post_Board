@@ -1,0 +1,19 @@
+<h1>Edit Post</h1>
+<hr>
+
+<div>
+  <%= form_for @post do |f| %>
+    <p>Title</p>
+    <p><%= f.text_field :title %></p>
+
+    <p>Content</p>
+    <p><%= f.text_area :content %></p>
+
+    <p>Category</p>
+      <%= collection_check_boxes(:post, :category_ids, Category.all, :id, :title) do |cbox|%>
+        <%= cbox.label(class: "checkbox-inline") { cbox.check_box(class: "checkbox") + cbox.text } %>
+      <% end %>
+
+    <p><%= f.submit %></p>
+  <% end %>
+</div>
