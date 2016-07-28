@@ -1,0 +1,10 @@
+<%= render 'shared/title', title: "All Category" %>
+
+<div>
+
+  <% @categories.each do |category| %>
+  <p><%= link_to category.title, category_path(category) %>
+      (<%= category.posts.size %> posts)</p>
+  <% end %>
+  
+</div>

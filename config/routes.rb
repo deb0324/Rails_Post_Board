@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  get 'posts' => 'posts#index'
+  resources :categories
+
+  root 'posts#index'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

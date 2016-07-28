@@ -1,18 +1,16 @@
 <%= render 'shared/title', title: "New Post" %>
 
 <div>
-  <%= form_for @post do |f| %>
+  <%= form_tag @post do |f| %>
     <p>Title</p>
-    <p><%= f.text_field :title %></p>
+    <p><%= text_field_tag :title, params[:title] %></p>
 
     <p>Content</p>
-    <p><%= f.text_area :content %></p>
+    <p><%= text_area_tag :content, params[:content] %></p>
 
     <p>Category</p>
-      <%= collection_check_boxes(:post, :category_ids, Category.all, :id, :title) do |cbox|%>
-        <%= cbox.label(class: "checkbox-inline") { cbox.check_box(class: "checkbox") + cbox.text } %>
-      <% end %>
+    <p><%= text_field_tag :categories, params[:categories] %></p>
 
-    <p><%= f.submit %></p>
+    <p><%= submit_tag "New Post" %></p>
   <% end %>
 </div>
