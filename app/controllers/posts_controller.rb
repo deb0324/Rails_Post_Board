@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
   end
 
   def new
@@ -40,6 +41,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
 
+    @post.comments.each do |comment|
+      comment.destroy
+    end
+    
     redirect_to posts_path
   end
 

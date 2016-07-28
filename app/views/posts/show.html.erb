@@ -1,5 +1,4 @@
-<h1><%= @post.title %></h1>
-<hr>
+<%= render 'shared/title', title: @post.title %>
 
 <div>
   <h3><%= @post.title %></h3>
@@ -10,4 +9,22 @@
 
 </div>
 
-<%= link_to "back to all posts", posts_path %>
+<p><%= link_to "back to all posts", posts_path %></p>
+
+<!-- to display all comments -->
+<div>
+  <% @post.comments.each do |comment| %>
+    <div>
+      <%= comment.content %>
+    </div>
+  <% end %>
+</div>
+
+<!-- the form for creating new comment -->
+<div>
+  <%= form_for [@post, @comment] do |f| %>
+    <p><%= f.text_area :content %></p>
+
+    <p><%= f.submit %></p>
+  <% end %>
+</div>
