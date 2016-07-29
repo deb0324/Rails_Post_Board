@@ -1,0 +1,13 @@
+<%= render 'shared/title', title: "Sign up" %>
+
+<div>
+  <%= form_for @user do |f| %>
+    <p>username:</p>
+    <p><%= f.text_field :username %></p>
+
+    <p>password:</p>
+    <p><%= f.password_field :password %></p>
+
+    <%= f.submit "Sign up" %>
+  <% end %>
+</div>

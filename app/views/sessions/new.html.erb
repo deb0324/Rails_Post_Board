@@ -1,0 +1,13 @@
+<%= render 'shared/title', title: "Log in" %>
+
+<div>
+  <%= form_for(:session, url: login_path) do |f| %>
+    <p>username:</p>
+    <p><%= f.text_field :username %></p>
+
+    <p>password:</p>
+    <p><%= f.password_field :password %></p>
+
+    <%= f.submit "Log in" %>
+  <% end %>
+</div>
