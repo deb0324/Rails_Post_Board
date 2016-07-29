@@ -2,6 +2,8 @@
 
 <div>
   <%= form_tag @post do |f| %>
+    <%= render 'shared/form_errors', object: @post %>
+    
     <p>Title</p>
     <p><%= text_field_tag :title, params[:title] %></p>
 

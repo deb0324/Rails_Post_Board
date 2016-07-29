@@ -7,4 +7,9 @@ class User < ActiveRecord::Base
   def author?(id)
     self == Post.find(id).user
   end
+
+  validates :username, :password, presence: true
+  validates :password, :username, length: {minimum: 2}
+  validates :password, :username, length: {maximum: 20}
+  
 end

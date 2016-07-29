@@ -2,6 +2,8 @@
 
 <div>
   <%= form_for @user do |f| %>
+    <%= render 'shared/form_errors', object: @user %>
+    
     <p>username:</p>
     <p><%= f.text_field :username %></p>
 

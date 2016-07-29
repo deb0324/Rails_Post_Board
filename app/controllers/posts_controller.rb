@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
   before_action :require_author, only:[:edit, :update, :destroy]
 
-  
+
   def index
     @posts = Post.all
   end
@@ -17,8 +17,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.create(title: params[:title], content: params[:content])
-    post.user = current_user
+    @post = Post.create(title: params[:title], content: params[:content])
+    @post.user = current_user
 
     all_cat = Category.all.pluck(:title) #get all current category titles
     user_cat = params[:categories].split(",") #parse all user categories input
@@ -30,15 +30,15 @@ class PostsController < ApplicationController
 
     #For existing categories associate it with the post
     (all_cat & user_cat).each do |cat|
-      post.categories << Category.find_by_title(cat)
+      @post.categories << Category.find_by_title(cat)
     end
 
     #For new categories create the category and associate it with post
     (user_cat - all_cat).each do |cat|
-      post.categories << Category.create(title: cat)
+      @post.categories << Category.create(title: cat)
     end
-
-    if post.save
+ 
+    if @post.save
       redirect_to posts_path
     else
       render :new
