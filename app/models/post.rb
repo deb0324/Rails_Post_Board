@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
 
 
-  validates :title, :content, presence: true
-  validates :title, :content, length: {minimum: 1}
+  validates :title, :content, presence: {message: "cannot be blank"}
+  validates :title, :content, length: {minimum: 1, message: "is too short, minimum 1 character" }
   
 end
