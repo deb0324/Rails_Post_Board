@@ -1,23 +1,34 @@
 <%= render 'shared/title', title: "All Posts" %>
 
+<span class="btn btn-warning">
 <%= link_to "new post", new_post_path %>
+</span>
 
-
+<span class="btn btn-warning">
 <%= link_to "All Categories", categories_path %>
+</span>
 
 <% if current_user %>
+  <span class="btn btn-warning">
   <%= link_to "Sign out", logout_path %>
+  </span>
+
 <% else %>
+  <span class="btn btn-warning">
   <%= link_to "Sign up", new_user_path %>
+  </span>
+
+  <span class="btn btn-warning">
   <%= link_to "Log in", login_path %>
+  </span>
 <% end %>
 
 
 <div>
   <% @posts.each do |post| %>
-    <div>
+    <div class="well col-md-8">
       <h3><%= post.title %></h3>
-      <p><%= post.content %></p>
+      <p><%= simple_format(post.content) %></p>
 
       <% if !post.user.nil? %>
         <p> posted by <%= post.user.username %></p>

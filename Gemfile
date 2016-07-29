@@ -8,6 +8,12 @@ gem 'pry'
 # Use bcrypt for secure password
 gem 'bcrypt'
 
+# Bootstrap gem
+gem 'bootstrap-sass'
+
+# for auto_link when displaying
+gem 'rails_autolink'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
