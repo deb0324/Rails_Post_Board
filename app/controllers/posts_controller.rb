@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
 
+  before_action :require_author, only:[:edit, :update, :destroy]
+
+  
   def index
     @posts = Post.all
   end
