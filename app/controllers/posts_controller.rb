@@ -15,6 +15,7 @@ class PostsController < ApplicationController
 
   def create
     post = Post.create(title: params[:title], content: params[:content])
+    post.user = current_user
 
     all_cat = Category.all.pluck(:title) #get all current category titles
     user_cat = params[:categories].split(",") #parse all user categories input

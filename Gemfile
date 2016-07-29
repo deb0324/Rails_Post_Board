@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 gem 'awesome_print'
 
+# Use pry for debugging
+gem 'pry'
+
 # Use bcrypt for secure password
 gem 'bcrypt'
 
